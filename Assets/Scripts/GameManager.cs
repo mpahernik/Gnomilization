@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [Header ("Resources and Incomes")]
@@ -127,10 +127,7 @@ public class GameManager : MonoBehaviour
             UpdateUI();
         }
 
-            if(Level == 20)
-            {
-                GameOver();
-            }            
+                      
 
         
     }
@@ -154,9 +151,9 @@ public class GameManager : MonoBehaviour
         score.gameObject.GetComponent<TextMeshProUGUI>().text = Score.ToString();
     }
 
-    public void GameOver()
+    public void GameOver(string scenename)
     {
-        //open game over panel
+        SceneManager.LoadScene(scenename);
     }
 
     public void SetErrorText(string s)
