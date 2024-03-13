@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd2704e640d7cc84ebfa356d47abf162, type: 3}
   m_Name: WarCamp
   m_EditorClassIdentifier: 
-  BuildingName: 
+  BuildingName: WarCamp
   CostWh: 0
   CostC: 0
   CostWo: 0
+  CostPop: 0
+  CostGold: 0
+  CostIcr: 0
   Icon: {fileID: 21300000, guid: 255a432eedccb4745858afeb43c29cba, type: 3}
   IncomeWh: 0
   IncomeC: 0

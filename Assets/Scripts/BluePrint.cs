@@ -8,9 +8,18 @@ public class BluePrint : MonoBehaviour
     [SerializeField] Building_Script Scriptobj;
     public GameObject buildingprefab;
     int i = 0;
+    public bool reset = false;
+    public string resettype;
     void Awake()
     {
-        GetCards();
+        if (reset)
+        {
+            Scriptobj = Resources.Load<Building_Script>(resettype);
+        }
+        else
+        {
+            GetCards();
+        }
     }
 
    
@@ -26,6 +35,7 @@ public class BluePrint : MonoBehaviour
         else if (GameManager.CardSelected) Debug.Log("glupane imaš kartu");
         else
         {
+            GameManager.cardselected = this.gameObject;
             buildingprefab.GetComponent<BuidlingDisplay>().bulding = Scriptobj;
             var lastsel = Instantiate(buildingprefab, Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
 

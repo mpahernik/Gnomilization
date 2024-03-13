@@ -64,14 +64,14 @@ public class SacrificeButtons : MonoBehaviour
             AddedAmount = int.Parse(PopInput.text);
             GameManager.Population -= AddedAmount;
             GameManager.SacrificeAmount -= AddedAmount;
-            GameManager.Score += AddedAmount;
+            GameManager.Score -= AddedAmount;
             manager.GetComponent<GameManager>().UpdateUI();
         }
     }
 
     public void Changecards()
     {
-        if (GameManager.CardChangecost < GameManager.Gold)
+        if (GameManager.CardChangecost <= GameManager.Gold)
         {
             GameManager.CardChange = true;
             GameManager.Gold -= GameManager.CardChangecost;
@@ -98,6 +98,21 @@ public class SacrificeButtons : MonoBehaviour
             GameManager.TurnTrigger = true;
         }
 
+
+    }
+
+
+    public void CancelCard()
+    {
+        if (GameManager.CardSelected)
+        {
+            GameManager.cardselected.GetComponent<BluePrint>().resettype =GameManager.lastselected.GetComponent<BuidlingDisplay>().bulding.BuildingName;
+            Destroy(GameManager.lastselected);
+            GameManager.CardSelected = false;
+            GameManager.cardselected.GetComponent<BluePrint>().reset = true;
+            GameManager.cardselected.SetActive(true);
+            // aktiviraj karticu i stavi da je ista kao i lastselected 
+        }
 
     }
 }

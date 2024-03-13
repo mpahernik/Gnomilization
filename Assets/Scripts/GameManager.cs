@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
     public static int Score = 0;
     bool TurnCntCheck = false;
     public static GameObject lastselected;
+    public static GameObject cardselected;
     // Start is called before the first frame update
 
     private void Awake()
